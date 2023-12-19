@@ -162,6 +162,7 @@ li button {
   }
 
   .listHeader {
+    max-width: 20%;
     order: 1;
   }
 
@@ -171,6 +172,7 @@ li button {
   }
 
   .listFooter {
+    max-width: 20%;
     order: 2;
   }
 }
