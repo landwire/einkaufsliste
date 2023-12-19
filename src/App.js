@@ -85,23 +85,24 @@ function App () {
     };
 
     return (
-        <div className="App">
+        <div className="app">
             <header>
-                <h1>Einkaufsliste</h1>
+                <h1 className="app__title">Einkaufsliste</h1>
             </header>
             <main>
-                <div className="inputArea">
+                <section className="listHeader">
                     <div className="inputFields">
                         <input
-                            className="itemQuantity"
+                            className="inputField itemQuantity"
                             type="number"
                             value={quantity}
                             onChange={handleQuantityChange}
                             min="1"
                             max="20"
                         />
+                        <span className="times">+</span>
                         <input
-                            className="itemName"
+                            className="inputField itemName"
                             type="text"
                             placeholder="Artikel"
                             value={itemName}
@@ -109,10 +110,10 @@ function App () {
                             onKeyDown={handleInputKeyDown}
                         />
                     </div>
-                    <button onClick={handleAddItem}>Add Item</button>
+                    <button className="button" onClick={handleAddItem}>Hinzufügen<span className="icon">+</span></button>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
-                </div>
-                <div className="listArea">
+                </section>
+                <section className="listMain">
                     <ul>
                         {items.map((item, index) => (
                             <li
@@ -129,18 +130,20 @@ function App () {
                             </li>
                         ))}
                     </ul>
+                </section>
+                <section className="listFooter">
                     {totalCount > 0 && (
                         <p className="itemsLeft">
                             Noch {totalCount - doneCount} von {totalCount} Einträgen
                         </p>
                     )}
                     {totalCount > 0 && (
-                        <button onClick={handleEmptyList}>Liste leeren</button>
+                        <button className="button" onClick={handleEmptyList}>Liste leeren<span className="icon">+</span></button>
                     )}
                     {totalCount > 0 && (
-                        <a className="linkAsButton" href={mailtoLink}>Einkaufsliste als E-Mail schicken</a>
+                        <a className="button" href={mailtoLink}>Einkaufsliste als E-Mail schicken</a>
                     )}
-                </div>
+                </section>
             </main>
         </div>
     );
