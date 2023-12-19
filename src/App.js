@@ -44,7 +44,7 @@ function App () {
 
     const isFirstLetterUppercase = (str) => {
         const firstChar = str.charAt(0);
-        return /^[A-Z]$/.test(firstChar);
+        return /^[A-ZÄÖÜ]$/.test(firstChar);
     };
 
     const handleAddItem = () => {
